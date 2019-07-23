@@ -16,5 +16,7 @@ namespace Vidly.Models
         public Movie FavoriteMovie { get; set; }
 
         public DateTime BirthDate { get; set; }
+
+        public bool IsSubscribed { get; set; }
     }
 }
