@@ -162,6 +162,10 @@
     <Compile Include="Migrations\201907230245522_AddReferToMemberShipTypeInCustomer.Designer.cs">
       <DependentUpon>201907230245522_AddReferToMemberShipTypeInCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907230840120_AddBirthDateInCustomer.cs" />
+    <Compile Include="Migrations\201907230840120_AddBirthDateInCustomer.Designer.cs">
+      <DependentUpon>201907230840120_AddBirthDateInCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\MemberShipType.cs" />
@@ -251,6 +255,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907230245522_AddReferToMemberShipTypeInCustomer.resx">
       <DependentUpon>201907230245522_AddReferToMemberShipTypeInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907230840120_AddBirthDateInCustomer.resx">
+      <DependentUpon>201907230840120_AddBirthDateInCustomer.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

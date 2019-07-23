@@ -22,12 +22,16 @@
                 @foreach (var customer in Model)
                 {
                     <tr>
+                        
                         <th>@customer.Id</th>
-                        <td>@customer.Name</td>
+                            
+                        <td><a href="Customers/Detail/@customer.Id">@customer.Name</a></td>
+                            
                         <td>@customer.MemberShipType.Name</td>
+                            
                     </tr>
                 }
-            </tbody>
+                </tbody>
         </table>
 
     }
