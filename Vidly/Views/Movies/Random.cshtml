@@ -1,0 +1,48 @@
+﻿@using Vidly.Models
+@model Vidly.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "随便玩";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>电影ID号:@Model.movie.ID 电影名：@Model.movie.Name</h2>
+<p>租赁用户</p>
+
+@*
+    有用户则显示表格，没有则显示一条提示文字    
+*@
+@if (@Model.Customer.Count != 0)
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">用户ID</th>
+            <th scope="col">用户名</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var customer in Model.Customer)
+        {
+            <tr class="active">
+                <th>@customer.ID</th>
+                <td>@customer.Name</td>
+            </tr>
+        }
+        <tr class="info"><td colspan="2">没有更多了</td></tr>
+        </tbody>
+
+    </table>
+}
+else
+{
+    <p>这个电影没有用户看过</p>
+}
+
+
+<h3>用ViewData["Movie"]传过来的值</h3>
+<p>ID是@(((Movie) ViewData["Movie"]).ID)</p>
+<p>名字是@(((Movie) ViewData["Movie"]).Name)</p>
+<hr />
+<h3>用ViewBag.Movie传过来的值</h3>
+<p>ID是@(((Movie) ViewBag.Movie).ID)</p>
+<p>名字是@(((Movie) ViewBag.Movie).Name)</p>

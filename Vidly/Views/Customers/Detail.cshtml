@@ -1,0 +1,10 @@
+﻿@model Vidly.Models.Customer
+@{
+    ViewBag.Title = Model.Name + " - 用户详情";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>用户详情</h2>
+<p>用户名：@Model.Name</p>
+<p>最爱的电影：@Model.FavoriteMovie.Name</p>
+
