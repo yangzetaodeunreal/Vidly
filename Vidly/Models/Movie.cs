@@ -15,6 +15,8 @@ namespace Vidly.Models
         public DateTime ReleaseDate { get; set; }
 
         public int NumberInStock { get; set; }
+
+        public Genre Genre { get; set; }
         //public IEnumerable<Customer> Customers { get; set; }
         //public int CustomerId { get; set; }
     }

@@ -1,6 +1,6 @@
 ﻿@using Vidly.Models
 @using System.Data.Entity
-@model DbSet<Movie>
+@model IEnumerable<Movie>
 @{
     ViewBag.Title = "全部电影";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -14,6 +14,7 @@
             <tr>
                 <th scope="col">电影ID</th>
                 <th scope="col">电影名</th>
+                <th scope="col">电影类型</th>
             </tr>
         </thead>
         <tbody>
@@ -21,7 +22,8 @@
             {
                 <tr>
                     <th>@movie.Id</th>
-                    <td><a href="Detail/@movie.Id">@movie.Name</a></td>
+                    <td><a href="Movies/Detail/@movie.Id">@movie.Name</a></td>
+                    <td>@movie.Genre.Name</td>
                 </tr>
             }
         </tbody>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,7 +20,7 @@ namespace Vidly.Controllers
 
         public ActionResult Index()
         {
-            return View(_context.Movies);
+            return View(_context.Movies.Include(g => g.Genre));
 
         }
 
