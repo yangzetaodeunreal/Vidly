@@ -32,7 +32,7 @@ namespace Vidly.Controllers
         //GET: Customer Details
         public ActionResult Detail(int id)
         {
-            return View(_context.Customers.Include(m => m.FavoriteMovie).Single(c => c.Id == id));
+            return View(_context.Customers.Include(m => m.FavoriteMovie).Include(mt => mt.MemberShipType).Single(c => c.Id == id));
         }
     }
 }
