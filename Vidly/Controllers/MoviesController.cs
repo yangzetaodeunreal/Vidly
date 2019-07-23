@@ -23,6 +23,11 @@ namespace Vidly.Controllers
 
         }
 
+        public ActionResult Detail(int id)
+        {
+            return View(_context.Movies.Single(m => m.Id == id));
+        }
+
         public ActionResult Random()
         {
             var movie = new Movie() { Id = 2, Name = "Shark With You" };
