@@ -22,7 +22,7 @@
             {
                 <tr>
                     <th>@movie.Id</th>
-                    <td><a href="Movies/Detail/@movie.Id">@movie.Name</a></td>
+                    <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, new { })</td>
                     <td>@movie.Genre.Name</td>
                 </tr>
             }

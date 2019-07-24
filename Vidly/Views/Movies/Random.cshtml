@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>电影ID号:@Model.movie.ID 电影名：@Model.movie.Name</h2>
+<h2>电影ID号:@Model.movie.Id 电影名：@Model.movie.Name</h2>
 <p>租赁用户</p>
 
 @*
@@ -24,7 +24,7 @@
         @foreach (var customer in Model.Customer)
         {
             <tr class="active">
-                <th>@customer.ID</th>
+                <th>@customer.Id</th>
                 <td>@customer.Name</td>
             </tr>
         }
@@ -40,9 +40,9 @@ else
 
 
 <h3>用ViewData["Movie"]传过来的值</h3>
-<p>ID是@(((Movie) ViewData["Movie"]).ID)</p>
+<p>ID是@(((Movie) ViewData["Movie"]).Id)</p>
 <p>名字是@(((Movie) ViewData["Movie"]).Name)</p>
 <hr />
 <h3>用ViewBag.Movie传过来的值</h3>
-<p>ID是@(((Movie) ViewBag.Movie).ID)</p>
+<p>ID是@(((Movie) ViewBag.Movie).Id)</p>
 <p>名字是@(((Movie) ViewBag.Movie).Name)</p>

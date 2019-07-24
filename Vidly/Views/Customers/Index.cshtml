@@ -25,7 +25,7 @@
                         
                         <th>@customer.Id</th>
                             
-                        <td><a href="Customers/Detail/@customer.Id">@customer.Name</a></td>
+                        <td>@Html.ActionLink(customer.Name, "Edit", "Customers", new { id = customer.Id}, new { })</td>
                             
                         <td>@customer.MemberShipType.Name</td>
                             

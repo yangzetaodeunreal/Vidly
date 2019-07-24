@@ -29,6 +29,40 @@ namespace Vidly.Controllers
             return View(_context.Movies.Single(m => m.Id == id));
         }
 
+        public ActionResult Edit(int id)
+        {
+            var movie = _context.Movies.Single(m => m.Id == id);
+
+            if (movie == null)
+                return HttpNotFound();
+
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Movie = movie,
+                Genres = _context.Genres.ToArray()
+            };
+
+            return View("MovieForm", viewModel);
+        }
+
+        public ActionResult Save(Movie movie)
+        {
+            if (movie.Id == 0)
+                ;
+            else
+            {
+                var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
+                movieInDb.Name = movie.Name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.NumberInStock = movie.NumberInStock;
+                movieInDb.GenreId = movie.GenreId;
+            }
+
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Movies");
+        }
+
         public ActionResult Random()
         {
             var movie = new Movie() { Id = 2, Name = "Shark With You" };
