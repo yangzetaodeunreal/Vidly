@@ -24,11 +24,6 @@ namespace Vidly.Controllers
 
         }
 
-        public ActionResult New()
-        {
-            return View();
-        }
-
         public ActionResult Detail(int id)
         {
             return View(_context.Movies.Single(m => m.Id == id));

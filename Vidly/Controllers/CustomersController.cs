@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
+using Vidly.ViewModels;
 
 namespace Vidly.Controllers
 {
@@ -27,6 +28,16 @@ namespace Vidly.Controllers
         {
             return View(_context.Customers.Include(mt => mt.MemberShipType));
             
+        }
+
+
+        public ActionResult New()
+        {
+            NewCustomerViewModel ViewModel = new NewCustomerViewModel
+            {
+                MemberShipTypes = _context.MemberShipTypes.ToArray()
+            };
+            return View(ViewModel);
         }
 
         //GET: Customer Details
