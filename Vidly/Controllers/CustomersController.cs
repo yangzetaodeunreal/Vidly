@@ -40,10 +40,16 @@ namespace Vidly.Controllers
             return View(ViewModel);
         }
 
+        [HttpPost]
+        public ActionResult Create(NewCustomerViewModel viewModel)
+        {
+            return RedirectToAction("Index", "Customers");
+        }
+
         //GET: Customer Details
         public ActionResult Detail(int id)
         {
-            return View(_context.Customers.Include(m => m.FavoriteMovie).Include(mt => mt.MemberShipType).Single(c => c.Id == id));
+            return View(_context.Customers.Include(mt => mt.MemberShipType).Single(c => c.Id == id));
         }
     }
 }

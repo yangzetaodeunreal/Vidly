@@ -8,7 +8,16 @@
 <p>用户名：@Model.Name</p>
 <ul>
     <li>会员级别：@Model.MemberShipType.Name</li>
-    <li>最爱的电影：@Model.FavoriteMovie.Name</li>
+
+    @if (Model.FavoriteMovie != null)
+    {
+        <li>最爱的电影：@Model.FavoriteMovie</li>
+    }
+    else
+    {
+        <li>这个用户很懒，没有填写最爱的电影~!</li>
+    }
+
     <li>生日：@Model.BirthDate.ToShortDateString()</li>
 </ul>
 

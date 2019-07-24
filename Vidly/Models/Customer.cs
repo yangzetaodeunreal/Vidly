@@ -16,8 +16,10 @@ namespace Vidly.Models
         [Display(Name = "会员类型")]
         public MemberShipType MemberShipType { get; set; }
 
+        public int MemberShipTypeId { get; set; }
+
         [Display(Name = "最爱的电影")]
-        public Movie FavoriteMovie { get; set; }
+        public string FavoriteMovie { get; set; }
 
         [Display(Name = "生日")]
         public DateTime BirthDate { get; set; }

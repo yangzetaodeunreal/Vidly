@@ -186,6 +186,14 @@
     <Compile Include="Migrations\201907231230266_AddIsSubscribedInCustomer.Designer.cs">
       <DependentUpon>201907231230266_AddIsSubscribedInCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907240235278_FavoriteMovieTypeString.cs" />
+    <Compile Include="Migrations\201907240235278_FavoriteMovieTypeString.Designer.cs">
+      <DependentUpon>201907240235278_FavoriteMovieTypeString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907240254508_CustomerAddMemberShipTypeId.cs" />
+    <Compile Include="Migrations\201907240254508_CustomerAddMemberShipTypeId.Designer.cs">
+      <DependentUpon>201907240254508_CustomerAddMemberShipTypeId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
@@ -297,6 +305,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907231230266_AddIsSubscribedInCustomer.resx">
       <DependentUpon>201907231230266_AddIsSubscribedInCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907240235278_FavoriteMovieTypeString.resx">
+      <DependentUpon>201907240235278_FavoriteMovieTypeString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907240254508_CustomerAddMemberShipTypeId.resx">
+      <DependentUpon>201907240254508_CustomerAddMemberShipTypeId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
