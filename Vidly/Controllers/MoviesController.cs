@@ -29,6 +29,15 @@ namespace Vidly.Controllers
             return View(_context.Movies.Single(m => m.Id == id));
         }
 
+        public ActionResult New()
+        {
+            MovieFormViewModel viewModel = new MovieFormViewModel
+            {
+                Genres = _context.Genres.ToArray()
+            };
+            return View("MovieForm", viewModel);
+        }
+
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.Single(m => m.Id == id);
@@ -48,7 +57,7 @@ namespace Vidly.Controllers
         public ActionResult Save(Movie movie)
         {
             if (movie.Id == 0)
-                ;
+                _context.Movies.Add(movie);
             else
             {
                 var movieInDb = _context.Movies.Single(m => m.Id == movie.Id);
