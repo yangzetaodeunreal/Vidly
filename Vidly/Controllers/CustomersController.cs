@@ -35,7 +35,9 @@ namespace Vidly.Controllers
         {
             CustomerFormViewModel ViewModel = new CustomerFormViewModel
             {
-                MemberShipTypes = _context.MemberShipTypes.ToArray()
+                MemberShipTypes = _context.MemberShipTypes.ToArray(),
+                Customer = new Customer { Id = 0 }
+               
             };
             return View("CustomerForm", ViewModel);
         }
@@ -43,6 +45,22 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            if (ModelState.IsValid == false)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MemberShipTypes = _context.MemberShipTypes.ToArray()
+                };
+
+                return View("CustomerForm", viewModel);
+            }
+
+            //dropbox no select,default to 0
+
+            if (customer.MemberShipTypeId == null)
+                customer.MemberShipTypeId = 0;
+
             if (customer.Id == 0)
                 _context.Customers.Add(customer);
             else

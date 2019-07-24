@@ -18,5 +18,7 @@ namespace Vidly.Models
         public int DurationInDays { get; set; }
 
         public int DiscountRate { get; set; }
+
+        public static readonly int PayAsYouGo = 0;
     }
 }

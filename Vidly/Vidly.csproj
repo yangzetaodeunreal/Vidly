@@ -198,10 +198,23 @@
     <Compile Include="Migrations\201907240605382_AddGenreIdInMovie.Designer.cs">
       <DependentUpon>201907240605382_AddGenreIdInMovie.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201907240753323_addRequiredForSomeModel.cs" />
+    <Compile Include="Migrations\201907240753323_addRequiredForSomeModel.Designer.cs">
+      <DependentUpon>201907240753323_addRequiredForSomeModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907240808271_birthdateAndMembershipTypeNotRequired.cs" />
+    <Compile Include="Migrations\201907240808271_birthdateAndMembershipTypeNotRequired.Designer.cs">
+      <DependentUpon>201907240808271_birthdateAndMembershipTypeNotRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907240826226_notrequiredForSomeMovieProperties.cs" />
+    <Compile Include="Migrations\201907240826226_notrequiredForSomeMovieProperties.Designer.cs">
+      <DependentUpon>201907240826226_notrequiredForSomeMovieProperties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Genre.cs" />
     <Compile Include="Models\MemberShipType.cs" />
+    <Compile Include="Models\Min18YearsIfAMember.cs" />
     <Compile Include="Models\Movie.cs" />
     <Compile Include="Models\VidlyContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -320,6 +333,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201907240605382_AddGenreIdInMovie.resx">
       <DependentUpon>201907240605382_AddGenreIdInMovie.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907240753323_addRequiredForSomeModel.resx">
+      <DependentUpon>201907240753323_addRequiredForSomeModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907240808271_birthdateAndMembershipTypeNotRequired.resx">
+      <DependentUpon>201907240808271_birthdateAndMembershipTypeNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201907240826226_notrequiredForSomeMovieProperties.resx">
+      <DependentUpon>201907240826226_notrequiredForSomeMovieProperties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

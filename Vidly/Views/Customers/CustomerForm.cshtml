@@ -6,7 +6,7 @@
 }
 
 
-@if (Model.Customer == null)
+@if (Model.Customer == null || Model.Customer.Id == 0)
 {
     <h2>创建新用户</h2>
 }
@@ -20,11 +20,13 @@ else
     <div class="form-group">
         @Html.LabelFor(c => c.Customer.Name)
         @Html.TextBoxFor(c => c.Customer.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.Name)
     </div>
 
     <div class="form-group">
         @Html.LabelFor(c => c.Customer.BirthDate)
         @Html.TextBoxFor(c => c.Customer.BirthDate, "{0:yyyy-MM-dd}",  new { @class = "form-control" })
+        @Html.ValidationMessageFor(c => c.Customer.BirthDate)
     </div>
 
     <div class="form-group">
@@ -35,6 +37,7 @@ else
     <div class="form-group">
         @Html.LabelFor(c => c.Customer.MemberShipTypeId)
         @Html.DropDownListFor(c => c.Customer.MemberShipTypeId, new SelectList(Model.MemberShipTypes, "Id", "Name"), "选择办理会员类型", new { @class = "form-control"})
+        @Html.ValidationMessageFor(c => c.Customer.MemberShipTypeId)
     </div>
 
     <div class="checkbox">

@@ -24,7 +24,10 @@
                 <tr>
                     <th>@movie.Id</th>
                     <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, new { })</td>
-                    <td>@movie.Genre.Name</td>
+                    @if (movie.Genre != null)
+                    {<td>@movie.Genre.Name</td>}
+                    else { <td>暂无分类</td>}
+
                 </tr>
             }
         </tbody>
