@@ -11,24 +11,29 @@ namespace Vidly.Controllers
 {
     public class MoviesController : Controller
     {
+        //dbcontext instance
         public VidlyContext _context;
 
         public MoviesController()
         {
+            //initialize context instance
             _context = new VidlyContext();
         }
 
+        //index action for movies default page
         public ActionResult Index()
         {
             return View(_context.Movies.Include(g => g.Genre));
 
         }
 
+        //detail action for genarate detail page for specific movie
         public ActionResult Detail(int id)
         {
             return View(_context.Movies.Single(m => m.Id == id));
         }
 
+        //new action for genarate new movie page
         public ActionResult New()
         {
             MovieFormViewModel viewModel = new MovieFormViewModel
@@ -40,6 +45,7 @@ namespace Vidly.Controllers
             return View("MovieForm", viewModel);
         }
 
+        //edit action for genrate edit page for specific movie
         public ActionResult Edit(int id)
         {
             var movie = _context.Movies.Single(m => m.Id == id);
@@ -56,6 +62,7 @@ namespace Vidly.Controllers
             return View("MovieForm", viewModel);
         }
 
+        //save action for update or insert
         public ActionResult Save(Movie movie)
         {
             if (!ModelState.IsValid)
@@ -86,6 +93,7 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Movies");
         }
 
+        //for fun, will remove in the future...
         public ActionResult Random()
         {
             var movie = new Movie() { Id = 2, Name = "Shark With You" };
@@ -106,6 +114,7 @@ namespace Vidly.Controllers
             return View(viewModel);
         }
 
+        //for fun,will remove in teh future...
         public ActionResult status(int id, string name)
         {   
 

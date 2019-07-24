@@ -11,18 +11,23 @@ namespace Vidly.Controllers
 {
     public class CustomersController : Controller
     {
+        //dbcontext
         private VidlyContext _context;
 
         public CustomersController()
         {
+            //initialize dbcontext
             _context = new VidlyContext();
         }
 
+       
         protected override void Dispose(bool disposing)
         {
+            //dispose dbcontext when controller diposed
             _context.Dispose();
             base.Dispose(disposing);
         }
+
         // GET: Customers
         public ActionResult Index()
         {
@@ -31,6 +36,7 @@ namespace Vidly.Controllers
         }
 
 
+        //new action for genrate new page
         public ActionResult New()
         {
             CustomerFormViewModel ViewModel = new CustomerFormViewModel
@@ -42,6 +48,7 @@ namespace Vidly.Controllers
             return View("CustomerForm", ViewModel);
         }
 
+        //save action for update or insert
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
@@ -57,7 +64,6 @@ namespace Vidly.Controllers
             }
 
             //dropbox no select,default to 0
-
             if (customer.MemberShipTypeId == null)
                 customer.MemberShipTypeId = 0;
 
@@ -79,6 +85,8 @@ namespace Vidly.Controllers
             return RedirectToAction("Index", "Customers");
         }
 
+
+        //edit action for genrate edit page
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.Single(c => c.Id == id);
