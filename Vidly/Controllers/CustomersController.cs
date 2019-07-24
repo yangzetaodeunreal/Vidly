@@ -50,6 +50,7 @@ namespace Vidly.Controllers
 
         //save action for update or insert
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             if (ModelState.IsValid == false)
