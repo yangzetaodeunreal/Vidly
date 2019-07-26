@@ -61,7 +61,7 @@ namespace Vidly.Controllers.Api
             var movieInDb = _context.Movies.SingleOrDefault(m => m.Id == id);
 
             if (movieInDb == null)
-                return BadRequest();
+                return NotFound();
 
             AutoMapper.Mapper.Map(movieDto, movieInDb);
             _context.SaveChanges();

@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "testTable";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+    <table id="customers" class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>用户名ID</th>
+                <th>用户名</th>
+                <th>会员级别</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>44</td>
+                <td>顶风作案嘻嘻</td>
+                <td>七夕鹊桥会员</td>
+            </tr>
+            <tr>
+                <td>45</td>
+                <td>UUU</td>
+                <td>普通会员</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $('#customers').DataTable();
+            $('#customers1').DataTable();
+        })
+    </script>
+}
+

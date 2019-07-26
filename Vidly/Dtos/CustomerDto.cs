@@ -13,6 +13,8 @@ namespace Vidly.Dtos
 
         public string Name { get; set; }
 
+        public MemberShipTypeDto MemberShipType { get; set; }
+
         public int? MemberShipTypeId { get; set; }
 
   

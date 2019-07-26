@@ -31,7 +31,7 @@ namespace Vidly.Controllers
         // GET: Customers
         public ActionResult Index()
         {
-            return View(_context.Customers.Include(mt => mt.MemberShipType));
+            return View();
             
         }
 
@@ -108,6 +108,12 @@ namespace Vidly.Controllers
         public ActionResult Detail(int id)
         {
             return View(_context.Customers.Include(mt => mt.MemberShipType).Single(c => c.Id == id));
+        }
+
+        public ActionResult ViewPage1()
+        {
+            return View();
+
         }
     }
 }
