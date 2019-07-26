@@ -1,13 +1,8 @@
-﻿@using Vidly.Models
-@using System.Data.Entity
-@model IEnumerable<Movie>
-@{
+﻿@{
     ViewBag.Title = "全部电影";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@if (Model.Count() != 0)
-{
     <h2>全部电影</h2>
     @Html.ActionLink("新增", "New", "Movies", new { }, new { @class = "btn btn-primary"})
     <table class="table table-striped table-hover" id="movies">
@@ -16,34 +11,63 @@
                 <th scope="col">电影ID</th>
                 <th scope="col">电影名</th>
                 <th scope="col">电影类型</th>
+                <th scope="col">操作</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var movie in Model)
-            {
-                <tr>
-                    <th>@movie.Id</th>
-                    <td>@Html.ActionLink(movie.Name, "Edit", "Movies", new { id = movie.Id }, new { })</td>
-                    @if (movie.Genre != null)
-                    {<td>@movie.Genre.Name</td>}
-                    else { <td>暂无分类</td>}
-
-                </tr>
-            }
         </tbody>
     </table>
-
-}
-else
-{
-    <h2>当前没有电影</h2>
-}
 
 @section scripts
 {
     <script>
         $(document).ready(function () {
-            $("#movies").DataTable();
+            var table = $("#movies").DataTable({
+                ajax: {
+                    url: "/api/movies",
+                    dataSrc: ""
+                },
+                columns: [
+                    {
+                        data:"id"
+                    },
+                    {
+                        data: "name",
+                        render: function (data, type, movie) {
+                            return "<a href='/Movies/Edit/" + movie.id + "'>" + movie.name + "</a>";
+                        }
+                    },
+                    {
+                        data:"genre",
+                        render: function (data) {
+                            return data != null ? data.name : "暂无分类";
+                        }
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn-link js-delete' data-member-id='" + data + "'>删除</button>";
+                        }
+                    }
+                ]
+            });
+
+            $("#movies").on("click", ".js-delete", function () {
+                var button = $(this);
+                bootbox.confirm("确定要删除吗？", function (result) {
+                    if (result) {
+                        $.ajax({
+                            url: "/api/movies/" + button.attr("data-member-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents('tr')).remove().draw();
+                            }
+                        });
+                    }
+
+                })
+
+            });
 
         });
     </script>

@@ -23,7 +23,7 @@ namespace Vidly.Controllers
         //index action for movies default page
         public ActionResult Index()
         {
-            return View(_context.Movies.Include(g => g.Genre));
+            return View();
 
         }
 
